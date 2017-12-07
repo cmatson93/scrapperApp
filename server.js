@@ -31,7 +31,17 @@ db.on("error", function(error) {
 
 // Routes
 app.get("/", function(req, res){
-  res.send("hello world");
+  // db.articles.drop();
+  db.article.find({}), function(error, found) {
+    // Throw any errors to the console
+    if (error) {
+      console.log(error);
+    }
+    // If there are no errors, send the data to the browser as json
+    else {
+      res.json(found);
+    }
+  };
 })
 
 // 2. At the "/all" path, display every entry in the animals collection
@@ -50,23 +60,16 @@ app.get("/all", function(req, res) {
 });
 
 app.get("/scrape", function(req, res){
-  db.articles.drop()
-  // Make request to grab the HTML from awwards's clean website section
+  // db.articles.drop();
+  console.log("-----SCRAPPING-------");
+  // Make request to grab the HTML from Business Insiders website 
   request("http://www.businessinsider.com/", function(error, response, html) {
 
     // Load the HTML into cheerio
     var $ = cheerio.load(html);
 
-    // With cheerio, look at each award-winning site, enclosed in "figure" tags with the class name "rollover"
     $("h2.overridable").each(function(i, element) {
-
-      /* Cheerio's find method will "find" the first matching child element in a parent.
-       *    We start at the current element, then "find" its first child a-tag.
-       *    Then, we "find" the lone child img-tag in that a-tag.
-       *    Then, .attr grabs the imgs srcset value.
-       *    The srcset value is used instead of src in this case because of how they're displaying the images
-       *    Visit the website and inspect the DOM if there's any confusion
-      */
+      
       var imgLink = $(element).find("a").attr("href");
       var title = $(element).text();
 
