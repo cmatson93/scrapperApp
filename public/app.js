@@ -11,7 +11,7 @@ function displayResults(articles) {
     console.log(article);
     // Append each article to the doc
     $("#results").append("<div class='articleDiv'><h2>" + article.title + "</h2>" +
-     "<a href='"+article.link+"'>Read Article</a></div>");
+     "<a href='"+article.link+"'>Read Article</a><button>Save</button><button>Comment</button></div>");
   });
 }
 
