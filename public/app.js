@@ -6,7 +6,7 @@ $.getJSON("/all", function(data) {
 
 function displayResults(articles) {
   // Then, for each entry of that json...
-  $("#results").empty();
+  console.log(articles);
   articles.forEach(function(article) {
     console.log(article);
     // Append each article to the doc
