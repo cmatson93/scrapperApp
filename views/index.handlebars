@@ -2,7 +2,6 @@
 <div class="sarticleDiv pt-5" id={{this._id}}>
 <h2 href="{{this.link}}" target="_blank">{{this.title}}</h2>
 <a href="{{this.link}}" target="_blank">Read Article</a>
-{{!-- <form action="/save/{{this._id}}" method="POST"> --}}
 <form action="/save/{{this._id}}" method="POST">
 {{#unless this.saved}}
 	<button type="submit" class="saved" value="{{this.saved}}">Save Article</button>
@@ -12,13 +11,12 @@
 	<button type="submit" class="saved" value="{{this.saved}}">Delete Article</button>
 {{/if}}
 </form>
-{{#unless this.note}}
-<button type="button" class="addnote-button" value="{{this._id}}">Add A Note</button>
-{{/unless}}
-{{#if this.note}}
-<button type="button" class="addnote-button" value="{{this._id}}">Edit Note</button>
-{{/if}}
-{{!-- </form> --}}
+{{!-- {{#unless this.note}} --}}
+<button type="button" id="noteButton" value="{{this._id}}">Article Notes</button>
+{{!-- {{/unless}} --}}
+{{!-- {{#if this.note}} --}}
+{{!-- <button type="button" id="editNoteButton" value="{{this._id}}">Edit Note</button> --}}
+{{!-- {{/if}} --}}
 
 {{!-- <summary>{{this.summary}}</summary> --}}
 {{!-- <img class="media" src="{{this.img}}"> --}}

@@ -14,7 +14,7 @@
 
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-light bg-light mb-5">
+    <nav class="navbar fixed-top navbar-dark bg-dark mb-5">
       <a class="navbar-brand" href="/">Home</a>
       <ul class="nav justify-content-end">
         <li class="nav-item">
@@ -31,6 +31,31 @@
         <!-- articles go here -->
         {{{ body }}}
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Note</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3>Article: <span id="articleTitle"></span></h3>
+            <label for="note-title">Title</label><br>
+            <input type="text" placeholder="Title" name="title" id="note-title"><br>
+            <label for="note-body">Note</label><br>
+            <textarea rows="7" placeholder="Note" id="note-body"></textarea><br>
+          </div>
+          <div class="modal-footer" id="modButtons">
+            {{!-- <button type="button" class="btn btn-primary" id="savenote">Save changes</button> --}}
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="app.js"></script>
   </body>
 </html>
