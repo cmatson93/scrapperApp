@@ -99,16 +99,6 @@ app.post("/note/:id", function(req, res) {
   });
 });
 
-// app.get("/note", function(req, res){
-//   console.log(req);
-//   var note = new Note(req.body);
-//   note.save(function(err, doc){
-//     if (err) throw err;
-//     Article.find({title: req.params.title}).then(function(dbArticle){
-//       console.log(dbArticle);
-//     })
-//   })
-// })
 
 //Get a old note
 app.get("/note/:id", function(req, res) {
