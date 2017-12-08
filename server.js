@@ -41,7 +41,8 @@ mongoose.connect("mongodb://localhost/businessinsider_db", {
 
 
 app.get("/", function(req, res) {
-  db.Article
+  console.log("HOME");
+  Article
   .find({})
   .then(function(dbArticle) {
     res.render("index", {articles: dbArticle});
@@ -79,7 +80,7 @@ app.get("/scrape", function(req, res){
 
     });
     console.log("---scrape Complete");
-          res.redirect("/");
+    res.redirect("/");
   });
 })
 
@@ -121,8 +122,30 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
-// Route to update if an article is saved or not 
 
+// Route to update if an article is saved or not 
+app.post("/save/:id", function(req, res) {
+  console.log("changing saved");
+  db.Article
+    .findById(req.params.id)
+    .then(function(dbArticle) {
+      //Check to see if article is already saved. If so "delete" from saved artcles.
+      console.log(dbArticle);
+      if (dbArticle.saved === true) {
+        console.log("was saved");
+        db.Article.findByIdAndUpdate(req.params.id, {$set: {saved: false }}, function(err, data){
+          res.redirect("/");
+        });
+      }
+      //If article is not already saved that means user wants to save it. 
+      else {
+        console.log("was not saved");
+        db.Article.findByIdAndUpdate(req.params.id, {$set: {saved:true}}, function(err, data){
+          res.redirect("/saved");
+        })
+      }
+    })
+});
 
 
 //Route to get all saved Articles
@@ -135,7 +158,8 @@ app.get("/saved", function(req, res){
     }
     // Otherwise, send the articles we found to the browser as a json
     else {
-      res.json(found);
+      // res.render("index", {articles: dbArticle});
+      res.render("index", {articles: found});
     }
   });
 })

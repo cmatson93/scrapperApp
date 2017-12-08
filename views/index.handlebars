@@ -3,14 +3,15 @@
 <h2 href="{{this.link}}" target="_blank">{{this.title}}</h2>
 <a href="{{this.link}}" target="_blank">Read Article</a>
 {{!-- <form action="/save/{{this._id}}" method="POST"> --}}
-{{#unless this.saved}}
 <form action="/save/{{this._id}}" method="POST">
+{{#unless this.saved}}
 	<button type="submit" class="saved" value="{{this.saved}}">Save Article</button>
-</form>
 {{/unless}}
 {{#if this.saved}}
-<button type="button" class="saved" value="{{this.saved}}">Delete Article</button>
+{{!-- <form action="/save/{{this._id}}" method="POST"> --}}
+	<button type="submit" class="saved" value="{{this.saved}}">Delete Article</button>
 {{/if}}
+</form>
 {{#unless this.note}}
 <button type="button" class="addnote-button" value="{{this._id}}">Add A Note</button>
 {{/unless}}
