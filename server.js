@@ -37,7 +37,7 @@ var Article = require("./models/Article");
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/businessinsider_db";
-mongoose.connect("mongodb://localhost/businessinsider_db", {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
