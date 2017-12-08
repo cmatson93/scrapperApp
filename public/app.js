@@ -1,5 +1,6 @@
 // Whenever someone clicks a addNote button
 $(document).on("click", "#noteButton", function(){
+  event.preventDefault();
   console.log("addNote button clicked");
   console.log(this.value);
 
@@ -49,7 +50,7 @@ $(document).on("click", "#noteButton", function(){
   })
 
   $(".closeMod").on("click", function(){
-    $(".modal").modal('hide');
+    $(".modal").remove();
   })
 
 });
