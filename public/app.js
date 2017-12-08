@@ -1,39 +1,34 @@
 // First thing: ask the back end for json with all articles
-$.getJSON("/all", function(data) {
-  // Call our function to generate a table body
-  displayResults(data);
-});
+// $.getJSON("/all", function(data) {
+//   // Call our function to generate a table body
+//   displayResults(data);
+// });
 
-function displayResults(articles) {
-  // Then, for each entry of that json...
-  console.log(articles);
-  articles.forEach(function(article) {
-    console.log(article);
-    // Append each article to the doc
-    $("#results").append("<div class='articleDiv'><h2>" + article.title + "</h2>" +
-     "<a href='"+article.link+"'>Read Article</a><button>Save</button><button>Comment</button></div>");
-  });
-}
+// function displayResults(data) {
+//   // Then, for each entry of that json...
+//   console.log(data);
+//   for (var i=0; i< data.length; i++) {
+//     // Append each article to the doc
+//     $("#results").prepend("<div class='articleDiv'><h2>" + data[i].title + "</h2>" +
+//      "<a href='"+data[i].link+"'>Read Article</a><button>Save</button><button class='comment' id='"+data[i]._id+"' >Comment</button></div>");
+//   };
+// }
 
-// When user clicks the scrape button, scrape for any new articles and prepend those to the page
-$("#scrape-articles").on("click", function() {
-  // Set new column as currently-sorted (active)
-  // setActive("#animal-weight");
-  console.log("clicked");
+
+// Whenever someone clicks a comment button
+$(document).on("click", ".comment", function(){
+  console.log("comment button clicked");
+  console.log(this.id);
+
+  var thisID = this.id;
+
   $.ajax({
     method: "GET",
-    url: "/scrape"
+    url: "/articles/" + thisID
   }).done(function(data){
+    console.log("done");
     console.log(data);
-    console.log("____SUCESS____");
-    displayResults(data);
-    // $.getJSON("/all", function(data) {
-    //   // Call our function to generate a table body
-    //   console.log("____SUCESS____");
-    //   console.log(data);
-    //   displayResults(data);
-    // });
+    console.log("========");
   })
-  // Do an api call to the back end for json with all animals sorted by weight
 
 });

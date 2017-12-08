@@ -14,34 +14,22 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar fixed-top navbar-light bg-light mb-5">
+      <a class="navbar-brand" href="index.html">Home</a>
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+          <form action="/scrape" method="GET">
+            <button id="scrape-articles">Scrape Articles</button>
+          </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" href="#">My Articles</a>
         </li>
       </ul>
     </nav>
-    <div class="container">
-      <div>
-        <h1>LET'S SCRAPE</h1>
-
-      </div>
-      <div id="button">
-        <button id="scrape-articles">Scrape Articles</button>
-      </div>
-      <div id="results">
+    <div class="container" id="results">
         <!-- articles go here -->
-      </div> 
+        {{{ body }}}
     </div>
     <script src="app.js"></script>
   </body>
