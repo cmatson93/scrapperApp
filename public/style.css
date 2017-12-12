@@ -1,9 +1,77 @@
 .sarticleDiv {
 	border-style: solid;
+	border-color: #2d5e7a;
 	margin-bottom: 10px;
 	padding: 15px;
 	border-radius: 5px;
+	background-color: black;
+	opacity: 0.8;
+	color: white;
+}
+
+.sarticleDiv a {
+	color: #2d5e7a;
+	padding-bottom: 15px;
+}
+
+.articleContent {
+	margin-left: 10px;
+}
+
+.sarticleDiv button {
+	margin-right: 10px;
+}
+
+body {
+	background-image: url("/images/boards-glasses-smartphone-phone-75652.jpeg");
+	font-family: 'Ubuntu', sans-serif;
+
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.jumbotron {
+	background-color: black;
+	opacity: 0.8;
+	color: white;
+}
+
+.navbar {
+	background: #2d5e7a;
+	opacity: 0.8;
+	color: white;	
+}
+
+.navbar a {
+	color: white;
 }
 
 
+/*styling for buttons*/
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  background: #2d5e7a;
+  font-size: 13px;
+  font-weight: 280;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 7px 20px;
+  margin: 0 auto;
+  box-shadow: 0 4px #28546d;
+  border-radius: 10px;
+}
 
+button:hover {
+  box-shadow: 0 2px #28546d;
+  top: 2px;
+}
+
+button:active {
+  box-shadow: 0 0 #28546d;
+  top: 6px;

@@ -32,14 +32,22 @@ var Note = require("./models/Note");
 var Article = require("./models/Article");
 
 
-
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/businessinsider_db";
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
+
+
+if (process.env.MONGODB_URI) {
+	mongoose.connect(MONGODB_URI, {
+		useMongoClient: true
+	})
+}
+else {
+	mongoose.connect("mongodb://localhost/businessinsider_db");
+};
+
+
 
 // Require Routes
 require("./controller/routes.js")(app);

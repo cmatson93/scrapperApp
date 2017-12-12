@@ -1,15 +1,19 @@
 {{#each articles}}
-<div class="sarticleDiv pt-5" id={{this._id}}>
-<h2 href="{{this.link}}" target="_blank">{{this.title}}</h2>
-<a href="{{this.link}}" target="_blank">Read Article</a>
-<form action="/save/{{this._id}}" method="POST" class="btn-group" role="group" aria-label="Basic example">
-{{#unless this.saved}}
-	<button type="submit" class="saved" value="{{this.saved}}">Save Article</button>
-{{/unless}}
-{{#if this.saved}}
-	<button type="submit" class="saved justify-content-start" value="{{this.saved}}">Delete Article</button>
-{{/if}}
-</form>
-<button type="button" id="noteButton" class="justify-content-end" value="{{this._id}}">Article Notes</button>
-</div>
+<div class="sarticleDiv pt-5 row" id={{this._id}}>
+	<div class="row articleContent">
+		<h2 href="{{this.link}}" target="_blank">{{this.title}}</h2>
+		<a href="{{this.link}}" target="_blank">Read Article</a>
+	</div>
+	<div class="row articleContent">
+		<form action="/save/{{this._id}}" method="POST" class="btn-group" role="group" aria-label="Basic example">
+		{{#unless this.saved}}
+			<button type="submit" class="saved" value="{{this.saved}}">Save Article</button>
+		{{/unless}}
+		{{#if this.saved}}
+			<button type="submit" class="saved justify-content-start" value="{{this.saved}}">Delete Article</button>
+		{{/if}}
+		</form>
+		<button type="button" id="noteButton" class="justify-content-end" value="{{this._id}}">Article Notes</button>
+		</div>
+	</div>
 {{/each}}
