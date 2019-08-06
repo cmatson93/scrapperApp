@@ -7,12 +7,11 @@
     <!-- Bootstrap link -->
     <script src="https://code.jquery.com/jquery.js"></script>
 
-     {{!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
-     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-     {{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> --}}
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
     <!-- jQuery script tag -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -21,19 +20,23 @@
 
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-dark bg-dark mb-5">
+    <nav class="navbar fixed-top  mb-5">
       <a class="navbar-brand" href="/">Home</a>
       <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <form action="/scrape" method="GET">
-            <button id="scrape-articles">Scrape Articles</button>
-          </form>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="/saved">My Articles</a>
         </li>
       </ul>
     </nav>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Buisiness Insider Scrapper</h1>
+        <p class="lead">This is a web app that allows you to scrape Buisiness Insider for new articles and save those articles to a database.</p>
+        <form action="/scrape" method="GET">
+          <button id="scrape-articles">Scrape Articles</button>
+        </form>
+      </div>
+    </div>
     <div class="container" id="results">
         <!-- articles go here -->
         {{{ body }}}
@@ -56,7 +59,6 @@
             <textarea rows="7" placeholder="Note" id="note-body"></textarea><br>
           </div>
           <div class="modal-footer" id="modButtons">
-            {{!-- <button type="button" class="btn btn-primary" id="savenote">Save changes</button> --}}
             <button type="button" class="btn btn-secondary closeMod" data-dismiss="modal">Close</button>
           </div>
         </div>
